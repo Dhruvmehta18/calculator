@@ -16,4 +16,6 @@
     <color name="secondaryOpaqueColor">#F6F0E4</color>
     <color name="secondaryOpaqueTextColor">#E37D2F</color>
     <color name="themeColor">#FFFFFF</color>
+    <color name="opaqueRed">#ffbcaf</color>
+    <color name="red">#b61827</color>
 </resources>
