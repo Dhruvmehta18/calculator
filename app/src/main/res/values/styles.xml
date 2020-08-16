@@ -1,0 +1,66 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorPrimaryVariant">@color/primaryLightColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+    </style>
+    <style name="Widget.App.Button.TextButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="PrimaryButton" parent="Widget.App.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.White</item>
+    </style>
+    <style name="ColorPrimaryButton" parent="Widget.App.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Primary</item>
+    </style>
+    <style name="ColorSecondaryButton" parent="Widget.App.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Secondary</item>
+    </style>
+    <style name="ColorPrimaryLightButton" parent="Widget.App.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Primary.Light</item>
+    </style>
+    <style name="ColorSecondaryLightButton" parent="Widget.App.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Secondary.Light</item>
+    </style>
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">0dp</item>
+    </style>
+    <style name="ThemeOverlay.App.Button.White" parent="">
+        <item name="colorPrimary">@color/primaryButtonColor</item>
+        <item name="colorOnPrimary">@color/primaryButtonTextColor</item>
+    </style>
+    <style name="ThemeOverlay.App.Button.Secondary" parent="">
+        <item name="colorPrimary">@color/secondaryColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+    </style>
+    <style name="ThemeOverlay.App.Button.Primary" parent="">
+    <item name="colorPrimary">@color/primaryColor</item>
+    <item name="colorOnPrimary">@color/primaryTextColor</item>
+</style>
+    <style name="ThemeOverlay.App.Button.Primary.Light" parent="">
+    <item name="colorPrimary">@color/primaryOpaqueColor</item>
+    <item name="colorOnPrimary">@color/primaryOpaqueTextColor</item>
+</style>
+    <style name="ThemeOverlay.App.Button.Secondary.Light" parent="">
+        <item name="colorPrimary">@color/secondaryOpaqueColor</item>
+        <item name="colorOnPrimary">@color/secondaryOpaqueTextColor</item>
+    </style>
+
+    <style name="ResultTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textAlignment">textEnd</item>
+    </style>
+</resources>
