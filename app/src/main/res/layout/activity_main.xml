@@ -10,7 +10,6 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -23,28 +22,22 @@
         andriod:layout_constraintTop_toTopOf="parent"
         andriod:layout_constraintVertical_bias="1.0">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textView"
+        <EditText
+            android:id="@+id/inputText"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:height="0dp"
-            android:maxHeight="100dp"
-            andriod:layout_constraintBottom_toTopOf="@+id/textView2"
-            andriod:layout_constraintTop_toTopOf="parent"
-            tools:text="23+7" />
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="false"
+            android:maxHeight="100dp" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textView2"
-            style="@style/ResultTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:autofillHints=""
-            android:text="100"
-            andriod:layout_constraintBottom_toBottomOf="parent"
-            andriod:layout_constraintEnd_toEndOf="parent"
-            andriod:layout_constraintStart_toStartOf="parent"
-            andriod:layout_constraintTop_toTopOf="parent"
-            tools:text="30-2" />
+<!--        <TextView-->
+<!--            android:id="@+id/resultview"-->
+<!--            android:layout_margin="10dp"-->
+<!--            style="@style/ResultTextStyle"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:autofillHints=""-->
+<!--             />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -59,43 +52,6 @@
         andriod:layout_constraintTop_toTopOf="parent"
         andriod:layout_constraintVertical_bias="1.0">
 
-        <LinearLayout
-            android:id="@+id/first_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/second_row"
-            android:layout_alignParentTop="false"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/ColorSecondaryButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="@string/c" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/ColorSecondaryLightButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="@string/left_curly_bracket" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/ColorSecondaryLightButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="@string/right_curly_bracket" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/ColorPrimaryLightButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="@string/multiply" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/second_row"
@@ -106,8 +62,17 @@
             android:weightSum="1">
 
             <Button
+                style="@style/ColorSecondaryButton"
+                android:id="@+id/clear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:text="@string/c" />
+
+            <Button
                 style="@style/ColorSecondaryLightButton"
                 android:layout_width="0dp"
+                android:id="@+id/squareroot"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/sqr_root" />
@@ -115,20 +80,15 @@
             <Button
                 style="@style/ColorSecondaryLightButton"
                 android:layout_width="0dp"
+                android:id="@+id/percentage"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/percentage" />
 
             <Button
-                style="@style/ColorSecondaryLightButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="@string/plus_over_minus" />
-
-            <Button
                 style="@style/ColorPrimaryLightButton"
                 android:layout_width="0dp"
+                android:id="@+id/divide"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/divide" />
@@ -145,6 +105,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/seven"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/seven" />
@@ -152,6 +113,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/eight"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/eight" />
@@ -159,6 +121,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/nine"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/nine" />
@@ -166,6 +129,7 @@
             <Button
                 style="@style/ColorPrimaryLightButton"
                 android:layout_width="0dp"
+                android:id="@+id/subtract"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/subtract" />
@@ -182,6 +146,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/four"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/four" />
@@ -189,6 +154,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/five"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/five" />
@@ -196,6 +162,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/six"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/six" />
@@ -203,6 +170,7 @@
             <Button
                 style="@style/ColorPrimaryLightButton"
                 android:layout_width="0dp"
+                android:id="@+id/add"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/plus" />
@@ -219,6 +187,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/one"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/one" />
@@ -226,6 +195,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/two"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/two" />
@@ -233,16 +203,18 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/three"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/three" />
 
             <Button
-                style="@style/ColorRedLightButton"
+                style="@style/ColorPrimaryLightButton"
                 android:layout_width="0dp"
+                android:id="@+id/multiply"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
-                android:text="@string/backspace" />
+                android:text="@string/multiply" />
 
         </LinearLayout>
 
@@ -257,6 +229,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/point"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/dot" />
@@ -264,6 +237,7 @@
             <Button
                 style="@style/PrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/zero"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
                 android:text="@string/zero" />
@@ -271,9 +245,18 @@
             <Button
                 style="@style/ColorPrimaryButton"
                 android:layout_width="0dp"
+                android:id="@+id/result"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"
+                android:layout_weight="0.25"
                 android:text="@string/equal" />
+
+            <Button
+                style="@style/ColorRedLightButton"
+                android:layout_width="0dp"
+                android:id="@+id/backspace"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:text="@string/backspace" />
         </LinearLayout>
     </RelativeLayout>
 
