@@ -2,18 +2,16 @@ package com.example.calculator;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
+import android.util.Log;
+import org.mariuszgromada.math.mxparser.*;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, clear, mul, div, add, sub, result, del, sqroot, point, perc;
+    Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, clear, mul, div, add, sub, result, del, lcurl, point, rcurl;
     EditText inputText;
-    float v1, v2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.themeColor));
         }
-        perc = findViewById(R.id.percentage);
+        lcurl = findViewById(R.id.leftCurl);
         point = findViewById(R.id.point);
-        sqroot = findViewById(R.id.squareroot);
+        rcurl = findViewById(R.id.rightCurl);
         del = findViewById(R.id.backspace);
         result = findViewById(R.id.result);
         mul = findViewById(R.id.multiply);
@@ -108,12 +106,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int l = inputText.getText().length();
                 if(l>0){
-                    if(inputText.getText().charAt(l-1) == 'X' || inputText.getText().charAt(l-1) == '/'){
+                    if(inputText.getText().charAt(l-1) == '*' || inputText.getText().charAt(l-1) == '/' || inputText.getText().charAt(l-1) == '+' || inputText.getText().charAt(l-1) == '-' || inputText.getText().charAt(l-1) == '.' || inputText.getText().charAt(l-1) == '\u221a'){
                         inputText.setText(inputText.getText() + "");
                     }
                     else{
-                        v1 = Float.parseFloat(String.valueOf(inputText.getText()));
-                        inputText.setText(inputText.getText() + "X");
+                        inputText.setText(inputText.getText() + "*");
                     }
                 }
             }
@@ -121,25 +118,64 @@ public class MainActivity extends AppCompatActivity {
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputText.setText(inputText.getText() + "/");
+                int l = inputText.getText().length();
+                if(l>0){
+                    if(inputText.getText().charAt(l-1) == '*' || inputText.getText().charAt(l-1) == '/' || inputText.getText().charAt(l-1) == '+' || inputText.getText().charAt(l-1) == '-' || inputText.getText().charAt(l-1) == '.' || inputText.getText().charAt(l-1) == '\u221a'){
+                        inputText.setText(inputText.getText());
+                    }
+                    else{
+                        inputText.setText(inputText.getText() + "/");
+                    }
+                }
             }
         });
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputText.setText(inputText.getText() + "+");
+                int l = inputText.getText().length();
+                if(l>0){
+                    if(inputText.getText().charAt(l-1) == '*' || inputText.getText().charAt(l-1) == '/' || inputText.getText().charAt(l-1) == '+' || inputText.getText().charAt(l-1) == '-' || inputText.getText().charAt(l-1) == '.' || inputText.getText().charAt(l-1) == '\u221a'){
+                        inputText.setText(inputText.getText());
+                    }
+                    else{
+                        inputText.setText(inputText.getText() + "+");
+                    }
+                }
             }
         });
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputText.setText(inputText.getText() + "-");
+                int l = inputText.getText().length();
+                if(l>0){
+                    if(inputText.getText().charAt(l-1) == '-'  || inputText.getText().charAt(l-1) == '.'){
+                        inputText.setText(inputText.getText());
+                    }
+                    else{
+                        inputText.setText(inputText.getText() + "-");
+                    }
+                }
+                else{
+                    inputText.setText(inputText.getText() + "-");
+                }
             }
         });
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ToDo: Add functions
+                String x;
+                try{
+                    Expression a = new Expression(inputText.getText().toString());
+                    if(a.checkSyntax()){
+                        x = String.valueOf(a.calculate());
+                    }
+                    else{
+                        x = "Error";
+                    }
+                }catch(Error e){
+                    x = "Error";
+                }
+                inputText.setText(x);
             }
         });
         clear.setOnClickListener(new View.OnClickListener() {
@@ -160,23 +196,30 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        sqroot.setOnClickListener(new View.OnClickListener() {
+        lcurl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String x = getString(R.string.sqr_root);
-                inputText.setText(inputText.getText() + x);
+                inputText.setText(inputText.getText() + "(");
             }
         });
         point.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputText.setText(inputText.getText() + ".");
+                int l = inputText.getText().length();
+                if(l>0){
+                    if(inputText.getText().charAt(l-1) == '*' || inputText.getText().charAt(l-1) == '/' || inputText.getText().charAt(l-1) == '+' || inputText.getText().charAt(l-1) == '-' || inputText.getText().charAt(l-1) == '.' || inputText.getText().charAt(l-1) == '\u221a' || inputText.getText().charAt(l-1) == '\u221a'){
+                        inputText.setText(inputText.getText());
+                    }
+                    else{
+                        inputText.setText(inputText.getText() + ".");
+                    }
+                }
             }
         });
-        perc.setOnClickListener(new View.OnClickListener() {
+        rcurl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputText.setText(inputText.getText() + "%");
+                inputText.setText(inputText.getText() + ")");
             }
         });
     }

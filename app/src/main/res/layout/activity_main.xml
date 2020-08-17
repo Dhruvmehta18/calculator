@@ -25,6 +25,7 @@
         <EditText
             android:id="@+id/inputText"
             android:layout_margin="10dp"
+            android:longClickable="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusableInTouchMode="false"
@@ -72,18 +73,18 @@
             <Button
                 style="@style/ColorSecondaryLightButton"
                 android:layout_width="0dp"
-                android:id="@+id/squareroot"
+                android:id="@+id/leftCurl"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
-                android:text="@string/sqr_root" />
+                android:text="@string/left_curly_bracket" />
 
             <Button
                 style="@style/ColorSecondaryLightButton"
                 android:layout_width="0dp"
-                android:id="@+id/percentage"
+                android:id="@+id/rightCurl"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
-                android:text="@string/percentage" />
+                android:text="@string/right_curly_bracket" />
 
             <Button
                 style="@style/ColorPrimaryLightButton"
